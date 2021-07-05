@@ -1,4 +1,5 @@
 ﻿using DevFreela.API.Models;
+using DevFreela.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,12 @@ namespace DevFreela.API.Controllers
     [Route("api/users")]
     public class UsersController : ControllerBase
     {
-        public UsersController(ExampleClass exampleClass)
+        private readonly IUserService _userService;
+        public UsersController(IUserService userService)
         {
-
+            _userService = userService;
         }
+
         // api/users/1
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
