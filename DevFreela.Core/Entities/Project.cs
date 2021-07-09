@@ -27,8 +27,8 @@ namespace DevFreela.Core.Entities
         public User Freelancer { get; private set; }
         public decimal TotalCost { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public DateTime StartedAt { get; private set; }
-        public DateTime FinishedAt { get; private set; }
+        public DateTime? StartedAt { get; private set; }
+        public DateTime? FinishedAt { get; private set; }
         public ProjectStatusEnum Status { get; private set; }
         public List<ProjectComment> Comments { get; private set; }
 
@@ -54,7 +54,7 @@ namespace DevFreela.Core.Entities
             if (Status == ProjectStatusEnum.Created)
             {
                 Status = ProjectStatusEnum.InProgress;
-                CreatedAt = DateTime.Now;
+                StartedAt = DateTime.Now;
             }
         }
 

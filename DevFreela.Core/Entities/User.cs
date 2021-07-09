@@ -13,9 +13,9 @@ namespace DevFreela.Core.Entities
             FullName = fullName;
             Email = email;
             BirthDate = birthDate;
+            CreatedAt = DateTime.Now;
             Active = true;
 
-            CreatedAt = DateTime.Now;
             Skills = new List<UserSkill>();
             OwnedProjects = new List<Project>();
             FreelanceProjects = new List<Project>();
