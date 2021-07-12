@@ -1,7 +1,9 @@
 using DevFreela.API.Models;
 using DevFreela.Application.Commands.CreateComment;
 using DevFreela.Application.Commands.CreateProject;
+using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Persistence;
+using DevFreela.Infrastructure.Persistence.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +45,11 @@ namespace DevFreela.API
             //services.AddScoped<IProjectService, ProjectService>();
             //services.AddScoped<ISkillService, SkillService>();
             //services.AddScoped<IUserService, UserService>();
+
+            // Add refactoring pattern Repository
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddControllers();
 
