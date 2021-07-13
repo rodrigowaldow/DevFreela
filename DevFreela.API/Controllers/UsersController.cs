@@ -48,9 +48,9 @@ namespace DevFreela.API.Controllers
 
         // api/users/login
         [HttpPut("login")]
-        public IActionResult Login([FromBody] LoginUserCommand command)
+        public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var loginUserViewModel = _mediator.Send(command);
+            var loginUserViewModel = await _mediator.Send(command);
 
             if (loginUserViewModel == null)
                 return BadRequest();
