@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace DevFreela.API.Controllers
 {
+    [Route("api/skills")]
     public class SkillsController : ControllerBase
     {
         //Refactoring from MediatR
